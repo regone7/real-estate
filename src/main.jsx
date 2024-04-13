@@ -7,6 +7,7 @@ import {
 import './index.css'
 import Root from './layout/Root';
 import Home from './pages/Home';
+import LogInPg from './components/LogInPg';
 
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
         path: "/",
         loader:()=>fetch('/mydata.json'),
         element: <Home></Home>,
+      },
+      {
+        path: "/login",
+        element: <LogInPg></LogInPg>,
       },
     ],
   },

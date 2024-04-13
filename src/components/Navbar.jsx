@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { TbBuildingCommunity } from "react-icons/tb";
 
 const links = <>
@@ -36,7 +36,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <a className="btn">Log In</a>
+                        <Link to='/login'><button className="btn btn-sm bg-cyan-300 hover:bg-cyan-200">Log In</button></Link>
                     </div>
                 </div>
             </div>
