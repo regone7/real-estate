@@ -3,20 +3,22 @@ import { TbBuildingCommunity } from "react-icons/tb";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
+
 const links = <>
     <div className="  flex flex-col md:flex-row items-center justify-center gap-3">
         <NavLink to='/' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-b-4 border-green-300  w-16 h-9 flex justify-center items-center' : 'font-bold w-16 h-9 flex justify-center items-center'}>Home</NavLink>
+        <NavLink to='/updateprofile' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-b-4 border-green-300  w-28 h-9 flex justify-center items-center' : 'font-bold w-28 h-9 flex justify-center items-center'}>Update Profile</NavLink>
     </div>
 </>
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext)
-    const handelLogout=()=>{
+    const handelLogout = () => {
         signOutUser()
-        .then(()=>{console.log("logout")})
-        .catch(error=>{
-            console.error(error);
-        })
+            .then(() => { console.log("logout") })
+            .catch(error => {
+                console.error(error);
+            })
     }
     return (
         <div >
@@ -46,10 +48,10 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        
+
                         {
                             user ? (<><div className="flex gap-3">
-                                <div className="tooltip   hover:tooltip-bottom " data-tip={user.email}>
+                                <div className="tooltip  z-[10] hover:tooltip-bottom " data-tip={user.email || "Name Not Found"} >
                                     <button className="btn btn-sm btn-circle">A</button>
                                 </div>
                                 <div><button onClick={handelLogout} className="btn btn-sm bg-lime-300 hover:bg-lime-500">Log out</button></div>

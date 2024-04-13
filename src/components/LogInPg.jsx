@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const LogInPg = () => {
     const { signInUsers } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handelLoginPg = (e) => {
         e.preventDefault();
@@ -15,6 +16,8 @@ const LogInPg = () => {
             .then(result => {
                 console.log(result.user)
                 console.log("succ")
+                e.target.reset()
+                navigate('/')
             })
             .catch(error => {
                 console.error(error)

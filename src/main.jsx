@@ -10,6 +10,8 @@ import Home from './pages/Home';
 import LogInPg from './components/LogInPg';
 import RegisterPg from './components/RegisterPg';
 import AuthProvider from './provider/AuthProvider';
+import UpdateProfile from './pages/UpdateProfile';
+import PrivateRoutes from './routes/PrivateRoutes';
 
 
 const router = createBrowserRouter([
@@ -29,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterPg></RegisterPg>,
+      },
+      {
+        path: "/updateprofile",
+        element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>,
       },
     ],
   },
