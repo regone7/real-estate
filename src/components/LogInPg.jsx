@@ -2,30 +2,39 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 const LogInPg = () => {
+    const handelLoginPg=(e)=>{
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password)
+        
+    }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content ">
                     <div className="card shrink-0 lg:w-[450px]  md:w-[350px] shadow-2xl ">
                         <h1 className="text-3xl text-center pt-5 font-bold">Log In Now!</h1>
-                        <form className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control mt-6">
-                                <button className="btn  bg-cyan-300 hover:bg-cyan-200">Login</button>
-                            </div>
+                        <div className="card-body">
+                            <form onSubmit={handelLoginPg}>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input type="email" placeholder="email" name="email" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control mt-6">
+                                    <input type="submit" value="Log In" className="btn  bg-orange-300 hover:bg-orange-400" />
+                                </div>
 
-                        </form>
+                            </form>
+                        </div>
 
                         <div className="flex items-center justify-between px-9">
                             <h1>New User?  </h1>
