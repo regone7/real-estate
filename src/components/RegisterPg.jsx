@@ -1,12 +1,27 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const RegisterPg = () => {
+    const {creatUser} = useContext(AuthContext)
+    
     const handelRegisterPg = (e) => {
         e.preventDefault();
+        const name=e.target.name.value;
         const email = e.target.email.value;
+        const photoURL=e.target.photoURL.value;
         const password = e.target.password.value;
         console.log(email, password)
+
+        creatUser(email, password)
+        .then((result) => {
+            console.log(result.user)
+            console.log("successfull")
+          })
+          .catch((error) => {
+            console.error(error)
+          })
 
     }
     return (
@@ -21,7 +36,7 @@ const RegisterPg = () => {
                                     <label className="label">
                                         <span className="label-text">Name</span>
                                     </label>
-                                    <input type="text" placeholder="name" className="input input-bordered" required />
+                                    <input type="text" placeholder="name" name="name" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -33,7 +48,7 @@ const RegisterPg = () => {
                                     <label className="label">
                                         <span className="label-text">PhotoURL</span>
                                     </label>
-                                    <input type="text" placeholder="photoURL" className="input input-bordered" required />
+                                    <input type="text" placeholder="photoURL" name="photoURL" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">

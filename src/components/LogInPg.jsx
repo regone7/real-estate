@@ -1,13 +1,25 @@
+import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const LogInPg = () => {
-    const handelLoginPg=(e)=>{
+    const { signInUsers } = useContext(AuthContext)
+
+    const handelLoginPg = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password)
-        
+
+        signInUsers(email, password)
+            .then(result => {
+                console.log(result.user)
+                console.log("succ")
+            })
+            .catch(error => {
+                console.error(error)
+                console.log("erroe")
+            })
     }
     return (
         <div>
@@ -21,7 +33,7 @@ const LogInPg = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" placeholder="email" name="email" className="input input-bordered" required />
+                                    <input type="email" placeholder="email"  name="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -30,7 +42,7 @@ const LogInPg = () => {
                                     <input type="password" placeholder="password" name="password" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input type="submit" value="Log In" className="btn  bg-orange-300 hover:bg-orange-400" />
+                                    <input type="submit" value="LogIn" className="btn  bg-orange-300 hover:bg-orange-400" />
                                 </div>
 
                             </form>

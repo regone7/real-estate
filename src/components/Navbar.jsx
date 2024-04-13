@@ -1,5 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { TbBuildingCommunity } from "react-icons/tb";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const links = <>
     <div className="  flex flex-col md:flex-row items-center justify-center gap-3">
@@ -8,6 +10,14 @@ const links = <>
 </>
 
 const Navbar = () => {
+    const { user, signOutUser } = useContext(AuthContext)
+    const handelLogout=()=>{
+        signOutUser()
+        .then(()=>{console.log("logout")})
+        .catch(error=>{
+            console.error(error);
+        })
+    }
     return (
         <div >
             <div className="container mx-auto"  >
@@ -36,7 +46,16 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <Link to='/login'><button className="btn btn-sm bg-cyan-300 hover:bg-cyan-200">Log In</button></Link>
+                        
+                        {
+                            user ? (<><div className="flex gap-3">
+                                <div className="tooltip   hover:tooltip-bottom " data-tip={user.email}>
+                                    <button className="btn btn-sm btn-circle">A</button>
+                                </div>
+                                <div><button onClick={handelLogout} className="btn btn-sm bg-lime-300 hover:bg-lime-500">Log out</button></div>
+                            </div></>) : (<><Link to='/login'><button className="btn btn-sm bg-cyan-300 hover:bg-cyan-200">Log In</button></Link></>
+                            )
+                        }
                     </div>
                 </div>
             </div>
