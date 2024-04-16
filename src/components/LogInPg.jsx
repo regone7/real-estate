@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { FaGithub } from "react-icons/fa";
 
 const LogInPg = () => {
-    const { signInUsers } = useContext(AuthContext)
-    const location=useLocation()
+    const { signInUsers, googleLogin, githubLogin } = useContext(AuthContext)
+    const location = useLocation()
     const navigate = useNavigate()
 
     const handelLoginPg = (e) => {
@@ -25,6 +26,29 @@ const LogInPg = () => {
                 console.log("erroe")
             })
     }
+    const handelgoogleLogin = () => {
+        googleLogin()
+            .then((result) => {
+                console.log(result.user)
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const handelGithublogin=()=>{
+        githubLogin()
+        .then((result) => {
+            console.log(result.user)
+            navigate(location?.state ? location.state : '/');
+            
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    }
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -37,7 +61,7 @@ const LogInPg = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" placeholder="email"  name="email" className="input input-bordered" required />
+                                    <input type="email" placeholder="email" name="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -59,8 +83,8 @@ const LogInPg = () => {
 
                         <div className="divider divider-gray-100 px-9">OR Login With </div>
                         <div className="px-9 flex flex-col w-full gap-3 mb-12">
-                            <button className="btn btn-outline btn-info "><FcGoogle className="text-3xl" /> Google</button>
-                            <button className="btn btn-outline btn-info ">Accent</button>
+                            <button onClick={handelgoogleLogin} className="btn btn-outline btn-info "><FcGoogle className="text-3xl" /> Google</button>
+                            <button onClick={handelGithublogin} className="btn btn-outline btn-info "><FaGithub className="text-3xl text-black" />  Github</button>
                         </div>
 
                     </div>
