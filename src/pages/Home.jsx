@@ -5,7 +5,7 @@ import Cards from "../components/Cards";
 
 const Home = () => {
     const estatecard =useLoaderData();
-    console.log(estatecard);
+    // console.log(estatecard);
     return (
         <div>
             <div className="container mx-auto ">

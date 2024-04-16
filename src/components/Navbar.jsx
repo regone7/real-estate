@@ -4,15 +4,18 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 
-const links = <>
-    <div className="  flex flex-col md:flex-row items-center justify-center gap-3">
-        <NavLink to='/' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-b-4 border-green-300  w-16 h-9 flex justify-center items-center' : 'font-bold w-16 h-9 flex justify-center items-center'}>Home</NavLink>
-        <NavLink to='/updateprofile' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-b-4 border-green-300  w-28 h-9 flex justify-center items-center' : 'font-bold w-28 h-9 flex justify-center items-center'}>Update Profile</NavLink>
-    </div>
-</>
-
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext)
+    const links = <>
+        <div className="  flex flex-col md:flex-row items-center justify-center gap-3">
+            <NavLink to='/' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-b-4 border-green-300  w-16 h-9 flex justify-center items-center' : 'font-bold w-16 h-9 flex justify-center items-center'}>Home</NavLink>
+            {
+                user && <>
+                    <NavLink to='/updateprofile' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-b-4 border-green-300  w-28 h-9 flex justify-center items-center' : 'font-bold w-28 h-9 flex justify-center items-center'}>Update Profile</NavLink>
+                </>
+            }
+        </div>
+    </>
     const handelLogout = () => {
         signOutUser()
             .then(() => { console.log("logout") })

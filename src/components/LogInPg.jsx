@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const LogInPg = () => {
     const { signInUsers } = useContext(AuthContext)
+    const location=useLocation()
     const navigate = useNavigate()
 
     const handelLoginPg = (e) => {
@@ -17,7 +18,7 @@ const LogInPg = () => {
                 console.log(result.user)
                 console.log("succ")
                 e.target.reset()
-                navigate('/')
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error)

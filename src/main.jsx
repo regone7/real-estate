@@ -12,6 +12,7 @@ import RegisterPg from './components/RegisterPg';
 import AuthProvider from './provider/AuthProvider';
 import UpdateProfile from './pages/UpdateProfile';
 import PrivateRoutes from './routes/PrivateRoutes';
+import CardsDiteals from './pages/CardsDiteals';
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,12 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterPg></RegisterPg>,
+      },
+      {
+        path: "/estatedtls/:id",
+        loader: () => fetch('/mydata.json'),
+        element: <PrivateRoutes><CardsDiteals></CardsDiteals></PrivateRoutes>,
+
       },
       {
         path: "/updateprofile",

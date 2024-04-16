@@ -1,10 +1,13 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 
 const RegisterPg = () => {
     const {creatUser} = useContext(AuthContext)
+    const [error,setError]=useState("");
+    const navigate=useNavigate();
+    const location=useLocation()
     
     const handelRegisterPg = (e) => {
         e.preventDefault();
@@ -14,10 +17,25 @@ const RegisterPg = () => {
         const password = e.target.password.value;
         console.log(email, password)
 
+        if(password.length < 6){
+            setError("Password must be at least 6 character")
+            return;
+        }
+        if(!/(?=.*[A-Z])/.test(password)){
+            setError("Password Must have One Uppercase letter in the password")
+            return;
+        }
+        if(!/(?=.*[a-z])/.test(password)){
+            setError("Password Must have One Lowercase letter in the password")
+            return;
+        }
+        setError('')
+
         creatUser(email, password)
         .then((result) => {
             console.log(result.user)
             console.log("successfull")
+            navigate(location?.state ? location.state : '/');
           })
           .catch((error) => {
             console.error(error)
@@ -55,6 +73,9 @@ const RegisterPg = () => {
                                         <span className="label-text">Password</span>
                                     </label>
                                     <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                   {
+                                    error && <small className="text-red-500">{error}</small>
+                                   }
                                 </div>
                                 <div className="form-control mt-6">
                                     <input type="submit" value="Register" className="btn  bg-orange-300 hover:bg-orange-400" />

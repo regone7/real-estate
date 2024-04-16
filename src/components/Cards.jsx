@@ -1,9 +1,10 @@
 import { SiReacthookform } from "react-icons/si";
 import { GiPriceTag } from "react-icons/gi";
 import { MdOutlineLocationOn } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Cards = ({ cards }) => {
-    const { estate_title, segment_name, description, price, status, area, location, facilities, image } = cards;
+    const { id, estate_title, segment_name, description, price, status, area, location, facilities, image } = cards;
     return (
         <div>
             <div className="card  bg-base-100 shadow-xl lg:h-[450px] md:h-[450px]">
@@ -29,7 +30,7 @@ const Cards = ({ cards }) => {
                         <h1 className="font-bold text-green-300"><span className="text-black">Status:</span> {status}</h1>
                     </div>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-sm btn-info hover:bg-gradient-to-r from-orange-300 to-purple-400 ">View Property</button>
+                        <Link to={`/estatedtls/${id}`} ><button className="btn btn-sm btn-outline btn-primary border-b-2 border-purple-300 btn-info hover:bg-gradient-to-r from-orange-300 to-purple-400 ">View Property</button></Link>
                     </div>
                 </div>
             </div>
