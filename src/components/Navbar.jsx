@@ -11,7 +11,9 @@ const Navbar = () => {
             <NavLink to='/' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-b-4 border-green-300  w-16 h-9 flex justify-center items-center' : 'font-bold w-16 h-9 flex justify-center items-center'}>Home</NavLink>
             {
                 user && <>
+                    <NavLink to='/profile' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-b-4 border-green-300  w-20 h-9 flex justify-center items-center' : 'font-bold w-20 h-9 flex justify-center items-center'}> Profile</NavLink>
                     <NavLink to='/updateprofile' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-b-4 border-green-300  w-28 h-9 flex justify-center items-center' : 'font-bold w-28 h-9 flex justify-center items-center'}>Update Profile</NavLink>
+
                 </>
             }
         </div>
@@ -29,7 +31,7 @@ const Navbar = () => {
                 <div className="navbar ">
                     <div className="navbar-start">
                         <div className="dropdown">
-                            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden md:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </div>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52">
@@ -43,7 +45,7 @@ const Navbar = () => {
                             <a className="btn btn-ghost text-xl font-bold bg-gradient-to-r from-purple-500 via-green-500 to-green-500 text-transparent bg-clip-text">CozyNook</a>
                         </div>
                     </div>
-                    <div className="navbar-center hidden lg:flex">
+                    <div className="navbar-center hidden lg:flex md:flex">
                         <ul className="menu menu-horizontal px-1">
                             {
                                 links
@@ -54,8 +56,8 @@ const Navbar = () => {
 
                         {
                             user ? (<><div className="flex gap-3">
-                                <div className="tooltip  z-[10] hover:tooltip-bottom " data-tip={user.email || "Name Not Found"} >
-                                    <button className="btn btn-sm btn-circle">A</button>
+                                <div className="tooltip  z-[10] hover:tooltip-bottom " data-tip={user?.displayName || "Name Not Found"} >
+                                    <button className="btn btn-sm btn-circle"><img className="rounded-full w-full h-full" src={user?.photoURL || 'https://i.ibb.co/vwWq42z/pexels-pixabay-162137.jpg'} alt="" /></button>
                                 </div>
                                 <div><button onClick={handelLogout} className="btn btn-sm bg-lime-300 hover:bg-lime-500">Log out</button></div>
                             </div></>) : (<><Link to='/login'><button className="btn btn-sm bg-cyan-300 hover:bg-cyan-200">Log In</button></Link></>

@@ -5,7 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { FaGithub } from "react-icons/fa";
 
 const LogInPg = () => {
-    const { signInUsers, googleLogin, githubLogin } = useContext(AuthContext)
+    const { signInUsers, googleLogin, githubLogin} = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -48,7 +48,7 @@ const LogInPg = () => {
             console.error(error)
         })
     }
-
+   
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">

@@ -13,6 +13,7 @@ import AuthProvider from './provider/AuthProvider';
 import UpdateProfile from './pages/UpdateProfile';
 import PrivateRoutes from './routes/PrivateRoutes';
 import CardsDiteals from './pages/CardsDiteals';
+import Profiles from './pages/Profiles';
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/updateprofile",
         element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>,
+      },
+      {
+        path: "/profile",
+        element: <PrivateRoutes><Profiles></Profiles></PrivateRoutes>,
       },
     ],
   },
