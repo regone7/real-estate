@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from "react-helmet-async";
 
 const RegisterPg = () => {
-    const { creatUser, updateUserProfile } = useContext(AuthContext)
+    const { creatUser, updateUserProfile,setLoading } = useContext(AuthContext)
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate();
@@ -39,10 +39,11 @@ const RegisterPg = () => {
             .then(() => {
                 updateUserProfile(name, photoURL)
                     .then(() => {
-                        toast.success("Succesfully")
+                        toast.success("Succesfully Register")
                         setTimeout(()=>{
                             navigate('/');
                         }, 1500);
+                        setLoading(false)
                         
                     })
 

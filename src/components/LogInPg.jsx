@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from "react-helmet-async";
 
 const LogInPg = () => {
-    const { signInUsers, googleLogin, githubLogin } = useContext(AuthContext)
+    const { signInUsers, googleLogin, githubLogin,setLoading } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
     const [showPasswords, setShowPasswords] = useState(false)
@@ -28,6 +28,7 @@ const LogInPg = () => {
                 setTimeout(() => {
                     navigate(location?.state ? location.state : '/');
                 }, 1500);
+                setLoading(false)
             })
             .catch(error => {
                 console.error(error)
