@@ -7,7 +7,7 @@ const Cards = ({ cards }) => {
     const { id, estate_title, segment_name, description, price, status, area, location, facilities, image } = cards;
     return (
         <div>
-            <div className="card  bg-base-100 shadow-xl lg:h-[450px] md:h-[450px]">
+            <div data-aos="zoom-out-down" data-aos-duration="2000" className="card  bg-base-100 shadow-xl lg:h-[450px] md:h-[450px]">
                 <figure><img className="h-[220px] w-full relative " src={image} alt="" /></figure>
                 <div className="flex items-center  space-x-1 absolute ">
                     <h1 className="font-bold text-fuchsia-300 ml-5 "> {status}</h1>

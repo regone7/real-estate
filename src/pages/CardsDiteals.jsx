@@ -19,7 +19,7 @@ const CardsDiteals = () => {
                     housing, senior living communities, vacation rentals and luxury estates. Each type offers different features and ownership structures.</p>
             </div>
             <div>
-            <img src={image} alt="" className=" hidden md:flex md:w-5/6  md:mx-auto  md:bg-gray-500 md:rounded-lg md:shadow-md md:-mb-12" />
+            <img data-aos="flip-down" data-aos-duration="3000" src={image} alt="" className=" hidden md:flex md:w-5/6  md:mx-auto  md:bg-gray-500 md:rounded-lg md:shadow-md md:-mb-12" />
             </div>
             <section>
                 <div className="bg-violet-200 md:h-[500px]">

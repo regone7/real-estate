@@ -1,6 +1,7 @@
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'animate.css';
 
 const ContructUs = () => {
     const handelContract=()=>{
@@ -10,7 +11,7 @@ const ContructUs = () => {
         <div className="container mx-auto">
             <section className="p-6 text-gray-100">
                 <form noValidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow bg-gray-700">
-                    <h2 className="w-full text-3xl font-bold leading-tight">Contact us</h2>
+                    <h2 className="w-full text-3xl font-bold leading-tight animate__animated animate__backInUp">Contact us</h2>
                     <div>
                         <label htmlFor="name" className="block mb-1 ml-1">Name</label>
                         <input id="name" type="text" placeholder="Your name" required="" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-400 bg-gray-800" />
