@@ -14,6 +14,8 @@ import UpdateProfile from './pages/UpdateProfile';
 import PrivateRoutes from './routes/PrivateRoutes';
 import CardsDiteals from './pages/CardsDiteals';
 import Profiles from './pages/Profiles';
+import ContructUs from './pages/ContructUs';
+import MoreService from './pages/MoreService';
 
 
 const router = createBrowserRouter([
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <PrivateRoutes><Profiles></Profiles></PrivateRoutes>,
+      },
+      {
+        path: "/contact",
+        element: <PrivateRoutes><ContructUs></ContructUs></PrivateRoutes>,
+      },
+      {
+        path: "/more",
+        element: <PrivateRoutes><MoreService></MoreService></PrivateRoutes>,
       },
     ],
   },
