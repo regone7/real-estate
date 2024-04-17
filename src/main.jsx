@@ -16,12 +16,14 @@ import CardsDiteals from './pages/CardsDiteals';
 import Profiles from './pages/Profiles';
 import ContructUs from './pages/ContructUs';
 import MoreService from './pages/MoreService';
+import Errorpage from './components/Errorpage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<Errorpage></Errorpage>,
     children: [
       {
         path: "/",
