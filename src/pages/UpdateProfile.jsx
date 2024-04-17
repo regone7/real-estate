@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const UpdateProfile = () => {
-    const {  updateUserProfile } = useContext(AuthContext)
+    const {  updateUserProfile, setLoading } = useContext(AuthContext)
     const handelUpdate = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -11,7 +13,11 @@ const UpdateProfile = () => {
 
         updateUserProfile(name, photoURL)
             .then(() => {
+                setLoading(false)
                 console.log("success");
+                setTimeout(()=>{
+                    toast.success("Succesfully Update")
+                }, 1500);
             })
             .catch((error) => {
                 console.error(error)
@@ -46,6 +52,7 @@ const UpdateProfile = () => {
                         </div>
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );

@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { IoMdEye } from "react-icons/io";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegisterPg = () => {
     const { creatUser, updateUserProfile } = useContext(AuthContext)
@@ -36,12 +38,17 @@ const RegisterPg = () => {
             .then(() => {
                 updateUserProfile(name, photoURL)
                     .then(() => {
-                        navigate('/');
+                        toast.success("Succesfully")
+                        setTimeout(()=>{
+                            navigate('/');
+                        }, 1500);
+                        
                     })
 
             })
             .catch((error) => {
                 console.error(error)
+                toast.error("Invalid ")
             })
 
     }
@@ -104,6 +111,7 @@ const RegisterPg = () => {
 
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );

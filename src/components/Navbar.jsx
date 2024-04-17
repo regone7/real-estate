@@ -2,6 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import { TbBuildingCommunity } from "react-icons/tb";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Navbar = () => {
@@ -21,7 +23,10 @@ const Navbar = () => {
     </>
     const handelLogout = () => {
         signOutUser()
-            .then(() => { console.log("logout") })
+            .then(() => { 
+                toast.success("Succesfully logout")
+                console.log("logout")
+             })
             .catch(error => {
                 console.error(error);
             })
@@ -66,6 +71,7 @@ const Navbar = () => {
                         }
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );
