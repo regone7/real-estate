@@ -1,13 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaGithub } from "react-icons/fa";
+import { FaRegEyeSlash } from "react-icons/fa6";
+import { IoMdEye } from "react-icons/io";
 
 const LogInPg = () => {
     const { signInUsers, googleLogin, githubLogin} = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
+    const [showPasswords, setShowPasswords] = useState(false)
 
     const handelLoginPg = (e) => {
         e.preventDefault();
@@ -67,7 +70,14 @@ const LogInPg = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+                                    <div>
+                                        <input type={showPasswords ? "text" : "password"} name="password" placeholder="password" className="input input-bordered relative w-full" required />
+                                        <span className="absolute -ml-9 mt-4" onClick={() => { setShowPasswords(!showPasswords) }}>
+                                            {
+                                                showPasswords ? <IoMdEye /> : <FaRegEyeSlash />
+                                            }
+                                        </span>
+                                    </div>
                                 </div>
                                 <div className="form-control mt-6">
                                     <input type="submit" value="LogIn" className="btn  bg-orange-300 hover:bg-orange-400" />

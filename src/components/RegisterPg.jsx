@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-
+import { FaRegEyeSlash } from "react-icons/fa6";
+import { IoMdEye } from "react-icons/io";
 
 const RegisterPg = () => {
     const { creatUser, updateUserProfile } = useContext(AuthContext)
     const [error, setError] = useState("");
+    const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate();
 
     const handelRegisterPg = (e) => {
@@ -70,16 +72,27 @@ const RegisterPg = () => {
                                     <input type="text" placeholder="photoURL" name="photoURL" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
+
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                    <div>
+                                        <input type={showPassword ? "text" : "password"} name="password" placeholder="password" className="input input-bordered relative w-full" required />
+                                        <span className="absolute -ml-9 mt-4" onClick={() => { setShowPassword(!showPassword) }}>
+                                            {
+                                                showPassword ? <IoMdEye /> : <FaRegEyeSlash />
+                                            }
+                                        </span>
+                                    </div>
+                                    
+
+
                                     {
                                         error && <small className="text-red-500">{error}</small>
                                     }
                                 </div>
-                                <div className="form-control mt-6">
-                                    <input type="submit" value="Register" className="btn  bg-orange-300 hover:bg-orange-400" />
+                                <div className="form-control ">
+                                    <input type="submit" value="Register" className="btn  bg-orange-300 mt-5 hover:bg-orange-400" />
                                 </div>
                             </form>
 
