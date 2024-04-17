@@ -49,7 +49,7 @@ const RegisterPg = () => {
             })
             .catch((error) => {
                 console.error(error)
-                toast.error("Invalid ")
+                toast.error(" Invalid ")
             })
 
     }

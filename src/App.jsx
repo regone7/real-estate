@@ -10,7 +10,7 @@ function App() {
     <>
       
       <h1>Vite + React</h1>
-      <button className='btn'>aa</button>
+      
       
     </>
   )
