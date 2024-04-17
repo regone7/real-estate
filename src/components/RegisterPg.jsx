@@ -5,6 +5,7 @@ import { FaRegEyeSlash } from "react-icons/fa6";
 import { IoMdEye } from "react-icons/io";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 const RegisterPg = () => {
     const { creatUser, updateUserProfile } = useContext(AuthContext)
@@ -54,6 +55,9 @@ const RegisterPg = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>CozyNook || Registration </title>
+            </Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content ">
                     <div className="card shrink-0 lg:w-[450px]  md:w-[350px] shadow-2xl ">

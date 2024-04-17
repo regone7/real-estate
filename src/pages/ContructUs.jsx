@@ -2,6 +2,7 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
+import { Helmet } from 'react-helmet-async';
 
 const ContructUs = () => {
     const handelContract=()=>{
@@ -9,6 +10,9 @@ const ContructUs = () => {
     }
     return (
         <div className="container mx-auto">
+            <Helmet>
+                <title>CozyNook || Contact us</title>
+            </Helmet>
             <section className="p-6 text-gray-100">
                 <form noValidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow bg-gray-700">
                     <h2 className="w-full text-3xl font-bold leading-tight animate__animated animate__backInUp">Contact us</h2>

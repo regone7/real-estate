@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet-async";
 
 
 const MoreService = () => {
     return (
         <div className="container mx-auto">
+            <Helmet>
+                <title>CozyNook || More Services </title>
+            </Helmet>
             <h1 className="text-2xl font-bold mt-5 text-center">More Services</h1>
             <p className="text-center">This is our upcoming services.Please stay with us for exciting services.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 my-3">

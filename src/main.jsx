@@ -17,13 +17,14 @@ import Profiles from './pages/Profiles';
 import ContructUs from './pages/ContructUs';
 import MoreService from './pages/MoreService';
 import Errorpage from './components/Errorpage';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement:<Errorpage></Errorpage>,
+    errorElement: <Errorpage></Errorpage>,
     children: [
       {
         path: "/",
@@ -66,8 +67,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </HelmetProvider>
   </React.StrictMode>,
 )

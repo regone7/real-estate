@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Sliders from "../components/slider/Sliders";
 import Cards from "../components/Cards";
+import { Helmet } from "react-helmet-async";
 
 
 const Home = () => {
@@ -8,6 +9,9 @@ const Home = () => {
     // console.log(estatecard);
     return (
         <div>
+            <Helmet>
+                <title>CozyNook || Home </title>
+            </Helmet>
             <div className="container mx-auto ">
                 <Sliders></Sliders>
             </div>

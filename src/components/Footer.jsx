@@ -7,7 +7,7 @@ const Footer = () => {
                 <aside>
                     <div className="flex  justify-center items-center ">
                         <TbBuildingCommunity className="  text-2xl font-bold text-purple-700" />
-                        <a className="btn btn-ghost text-xl font-bold bg-gradient-to-r from-purple-500 via-green-500 to-green-500 text-transparent bg-clip-text">CozyNook</a>
+                        <h1 className="btn btn-ghost text-xl font-bold bg-gradient-to-r from-purple-500 via-green-500 to-green-500 text-transparent bg-clip-text">CozyNook</h1>
                     </div>
                     <div className="grid grid-cols-1 space-y-3">
                         <div>

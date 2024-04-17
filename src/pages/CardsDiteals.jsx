@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import { GiPriceTag } from "react-icons/gi";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { GiSpookyHouse } from "react-icons/gi";
+import { Helmet } from 'react-helmet-async';
 
 const CardsDiteals = () => {
     const estate = useLoaderData()
@@ -13,6 +14,9 @@ const CardsDiteals = () => {
     const { estate_title, segment_name, description, price, status, area, location, facilities, image } = editels;
     return (
         <div className='h-full'>
+            <Helmet>
+                <title>CozyNook || Details </title>
+            </Helmet>
             <div className='md:my-7' >
                 <h1 className='font-bold text-center text-3xl '>Details</h1>
                 <p className='text-center'>Residential properties can vary widely, from single-family homes to townhouses, apartments, student

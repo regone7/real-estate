@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 
 const UpdateProfile = () => {
@@ -27,6 +28,9 @@ const UpdateProfile = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>CozyNook || Update Profile</title>
+            </Helmet>
             <div className="container mx-auto">
                 <div className="hero min-h-screen ">
                     <div className="hero-content flex">
