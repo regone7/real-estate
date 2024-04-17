@@ -16,7 +16,9 @@ const UpdateProfile = () => {
                 setLoading(false)
                 console.log("success");
                 setTimeout(()=>{
-                    toast.success("Succesfully Update")
+                    toast.success("Succesfully Update", {
+                        autoClose: 3000, 
+                      })
                 }, 1500);
             })
             .catch((error) => {

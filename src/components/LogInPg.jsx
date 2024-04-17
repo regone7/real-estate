@@ -41,11 +41,11 @@ const LogInPg = () => {
                 setTimeout(() => {
                     navigate(location?.state ? location.state : '/');
                 }, 1500);
+               
 
             })
             .catch(error => {
                 console.error(error)
-                toast.error("Invalid try again")
 
             })
     }
@@ -62,7 +62,6 @@ const LogInPg = () => {
             })
             .catch(error => {
                 console.error(error)
-                toast.error("Invalid try again")
             })
     }
 
@@ -113,8 +112,9 @@ const LogInPg = () => {
 
                     </div>
                 </div>
+                <ToastContainer />
             </div>
-            <ToastContainer />
+            
         </div>
     );
 };

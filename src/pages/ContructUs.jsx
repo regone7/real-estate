@@ -1,6 +1,11 @@
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContructUs = () => {
+    const handelContract=()=>{
+        toast.success("Succesfully Send")
+    }
     return (
         <div className="container mx-auto">
             <section className="p-6 text-gray-100">
@@ -19,9 +24,10 @@ const ContructUs = () => {
                         <textarea id="message" type="text" placeholder="Message..." className="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-400 bg-gray-800"></textarea>
                     </div>
                     <div>
-                        <button type="submit" className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 bg-violet-400 focus:ring-violet-400 hover:ring-violet-400 text-gray-900">Send</button>
+                        <button type="submit" onClick={handelContract} className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 bg-violet-400 focus:ring-violet-400 hover:ring-violet-400 text-gray-900">Send</button>
                     </div>
                 </form>
+                <ToastContainer />
             </section>
         </div>
     );

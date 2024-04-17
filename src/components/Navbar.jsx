@@ -25,7 +25,6 @@ const Navbar = () => {
         signOutUser()
             .then(() => { 
                 toast.success("Succesfully logout")
-                console.log("logout")
              })
             .catch(error => {
                 console.error(error);
