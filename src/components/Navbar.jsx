@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { TbBuildingCommunity } from "react-icons/tb";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext)
+    const navigate = useNavigate()
     const links = <>
         <div className="  flex flex-col md:flex-row items-center justify-center gap-3">
             <NavLink to='/' className={({ isActive }) => isActive ? 'text-accent font-bold bg-white border-b-4 border-green-300  w-12 h-9 flex justify-center items-center' : 'font-bold w-12 h-9 flex justify-center items-center'}>Home</NavLink>
@@ -25,6 +26,9 @@ const Navbar = () => {
         signOutUser()
             .then(() => { 
                 toast.success("Succesfully logout")
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 1500);
              })
             .catch(error => {
                 console.error(error);
